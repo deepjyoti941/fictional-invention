@@ -15,6 +15,12 @@ beforeEach(() => {
     </Root>
   );
 });
+
 it('creates on LI per comment', () => {
   expect(wrapped.find('li')).toHaveLength(2);
+});
+
+it('shows the text for each comment', () => {
+  expect(wrapped.render().text()).toContain('Comment 1');
+  expect(wrapped.render().text()).toContain('Comment 2');
 });
