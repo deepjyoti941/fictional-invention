@@ -29,9 +29,10 @@ it('can fetch a list of comments and display them', (done) => {
 
   // introduce a TINY little pause so that moxios can intercept the url
   // Expect to find a list of comments
-  setTimeout(() => {
+  moxios.wait(() => {
     wrapped.update();
     expect(wrapped.find('li')).toHaveLength(2);
     done();
-  }, 100);
+    wrapped.unmount();
+  });
 });
